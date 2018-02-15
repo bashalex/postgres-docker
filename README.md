@@ -19,4 +19,4 @@ Make sure that you installed:
 - Run `docker build -t postgres .` to build the project's container.
 - Run `docker run --name postgres postgres` to run the container.
 
-In a new terminal tab you can connect to the postgresql server using `docker exec -it postgres psql`. (Don't forget to connect to the docker machine in a new tab first executing `eval $(docker-machine env hse.postgres.dev)`)
+In a new terminal tab you can connect to the postgresql server using `docker exec -it postgres psql`. Don't forget to connect to the docker machine in a new tab first executing `eval $(docker-machine env hse.postgres.dev)`.
