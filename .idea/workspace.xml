@@ -9,9 +9,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44042dea-d5f2-437b-9344-19043ee03f8d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/postgres/src/backend/tcop/utility.c" afterPath="$PROJECT_DIR$/postgres/src/backend/tcop/utility.c" />
-    </list>
+    <list default="true" id="44042dea-d5f2-437b-9344-19043ee03f8d" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,11 +29,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="utility.c" pinned="false" current-in-tab="true">
+      <file leaf-file-name="utility.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/postgres/src/backend/tcop/utility.c">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="208">
-              <caret line="649" column="18" lean-forward="true" selection-start-line="649" selection-start-column="18" selection-end-line="649" selection-end-column="18" />
+              <caret line="649" column="18" lean-forward="false" selection-start-line="649" selection-start-column="18" selection-end-line="649" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/postgres/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="460">
+              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -75,7 +83,7 @@
     </findStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/postgres" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
     <option name="modificationStamps">
@@ -91,6 +99,7 @@
         <option value="$PROJECT_DIR$/postgresql.conf" />
         <option value="$PROJECT_DIR$/Dockerfile" />
         <option value="$PROJECT_DIR$/postgres/src/backend/tcop/utility.c" />
+        <option value="$PROJECT_DIR$/postgres/README.md" />
       </list>
     </option>
   </component>
@@ -128,11 +137,6 @@
             <path>
               <item name="postgresql" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
               <item name="postgresql" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="postgresql" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
-              <item name="postgresql" type="462c0819:PsiDirectoryNode" />
-              <item name="postgres" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -259,12 +263,12 @@
       <workItem from="1518640133581" duration="345000" />
       <workItem from="1518641051328" duration="100000" />
       <workItem from="1518641220367" duration="7793000" />
-      <workItem from="1518649377232" duration="3464000" />
+      <workItem from="1518649377232" duration="3720000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11702000" />
+    <option name="totallyTimeSpent" value="11958000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -385,7 +389,15 @@
     <entry file="file://$PROJECT_DIR$/postgres/src/backend/tcop/utility.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
-          <caret line="649" column="18" lean-forward="true" selection-start-line="649" selection-start-column="18" selection-end-line="649" selection-end-column="18" />
+          <caret line="649" column="18" lean-forward="false" selection-start-line="649" selection-start-column="18" selection-end-line="649" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/postgres/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
