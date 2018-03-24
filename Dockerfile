@@ -1,9 +1,9 @@
 FROM ubuntu:latest
 
 # Install dependencies
-RUN apt-get update
-RUN apt-get upgrade -y
-RUN apt-get install build-essential libreadline-dev zlib1g-dev flex bison postgresql-client -y
+RUN apt-get update && \
+apt-get upgrade -y && \
+apt-get install build-essential libreadline-dev zlib1g-dev flex bison postgresql-client -y
 
 # Copy source code
 RUN mkdir /code
@@ -11,9 +11,7 @@ WORKDIR /code
 ADD postgres /code/
 
 # Build postgres
-RUN ./configure
-RUN make
-RUN make install
+RUN ./configure && make && make install
 RUN adduser postgres
 RUN mkdir /usr/local/pgsql/data
 RUN chown postgres /usr/local/pgsql/data

@@ -1146,12 +1146,14 @@ REVOKE EXECUTE ON FUNCTION lo_export(oid, text) FROM public;
 
 REVOKE EXECUTE ON FUNCTION pg_ls_logdir() FROM public;
 REVOKE EXECUTE ON FUNCTION pg_ls_waldir() FROM public;
+REVOKE EXECUTE ON FUNCTION list_shared_libraries() FROM public;
 
 --
 -- We also set up some things as accessible to standard roles.
 --
 GRANT EXECUTE ON FUNCTION pg_ls_logdir() TO pg_monitor;
 GRANT EXECUTE ON FUNCTION pg_ls_waldir() TO pg_monitor;
+GRANT EXECUTE ON FUNCTION list_shared_libraries() TO pg_monitor;
 
 GRANT pg_read_all_settings TO pg_monitor;
 GRANT pg_read_all_stats TO pg_monitor;

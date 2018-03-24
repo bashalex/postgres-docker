@@ -567,3 +567,11 @@ pg_ls_waldir(PG_FUNCTION_ARGS)
 {
 	return pg_ls_dir_files(fcinfo, XLOGDIR);
 }
+
+/* Function to return the list of loaded shared libraries */
+Datum
+list_shared_libraries(PG_FUNCTION_ARGS)
+{
+	elog(WARNING, "Hi!");
+	return pg_ls_dir_files(fcinfo, XLOGDIR);
+}
