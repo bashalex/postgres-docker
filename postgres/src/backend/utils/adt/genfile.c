@@ -575,11 +575,7 @@ list_shared_libraries(PG_FUNCTION_ARGS) {
     FuncCallContext *funcctx;
 	DynamicFileList *file_scanner;
 
-	elog(WARNING, "list_shared_libraries()");
-
     if (SRF_IS_FIRSTCALL()) {
-		elog(WARNING, "SRC_IS_FIRSTCALL()");
-
         MemoryContext oldcontext;
         TupleDesc tupdesc;
 
@@ -602,8 +598,6 @@ list_shared_libraries(PG_FUNCTION_ARGS) {
         Datum		values[1];
         bool		nulls[1];
         HeapTuple	tuple;
-
-		elog(WARNING, "file: %s", file_scanner->filename);
 
         values[0] = CStringGetTextDatum(file_scanner->filename);
         memset(nulls, 0, sizeof(nulls));

@@ -655,7 +655,6 @@ standard_ProcessUtility(PlannedStmt *pstmt,
 
 				closeAllVfds(); /* probably not necessary... */
 				/* Allowed names are restricted if you're not superuser */
-				elog(WARNING, "load file: %s", stmt->filename);
 				load_file(stmt->filename, !superuser());
 			}
 			break;
