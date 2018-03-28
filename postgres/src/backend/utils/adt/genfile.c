@@ -31,6 +31,7 @@
 #include "utils/builtins.h"
 #include "utils/memutils.h"
 #include "utils/timestamp.h"
+#include "fmgr.h"
 
 typedef struct
 {
@@ -568,10 +569,49 @@ pg_ls_waldir(PG_FUNCTION_ARGS)
 	return pg_ls_dir_files(fcinfo, XLOGDIR);
 }
 
-/* Function to return the list of loaded shared libraries */
+
 Datum
-list_shared_libraries(PG_FUNCTION_ARGS)
-{
-	elog(WARNING, "Hi!");
-	return pg_ls_dir_files(fcinfo, XLOGDIR);
+list_shared_libraries(PG_FUNCTION_ARGS) {
+    FuncCallContext *funcctx;
+	DynamicFileList *file_scanner;
+
+	elog(WARNING, "list_shared_libraries()");
+
+    if (SRF_IS_FIRSTCALL()) {
+		elog(WARNING, "SRC_IS_FIRSTCALL()");
+
+        MemoryContext oldcontext;
+        TupleDesc tupdesc;
+
+        funcctx = SRF_FIRSTCALL_INIT();
+		funcctx->user_fctx = file_list;
+        oldcontext = MemoryContextSwitchTo(funcctx->multi_call_memory_ctx);
+
+        tupdesc = CreateTemplateTupleDesc(1, false);
+        TupleDescInitEntry(tupdesc, (AttrNumber) 1, "name",
+                           TEXTOID, -1, 0);
+        funcctx->tuple_desc = BlessTupleDesc(tupdesc);
+
+        MemoryContextSwitchTo(oldcontext);
+    }
+
+    funcctx = SRF_PERCALL_SETUP();
+	file_scanner = (FuncCallContext *) funcctx->user_fctx;
+	while (file_scanner != NULL)
+    {
+        Datum		values[1];
+        bool		nulls[1];
+        HeapTuple	tuple;
+
+		elog(WARNING, "file: %s", file_scanner->filename);
+
+        values[0] = CStringGetTextDatum(file_scanner->filename);
+        memset(nulls, 0, sizeof(nulls));
+
+        tuple = heap_form_tuple(funcctx->tuple_desc, values, nulls);
+		funcctx->user_fctx = file_scanner->next;
+		SRF_RETURN_NEXT(funcctx, HeapTupleGetDatum(tuple));
+    }
+
+    SRF_RETURN_DONE(funcctx);
 }

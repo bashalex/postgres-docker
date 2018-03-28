@@ -5556,7 +5556,7 @@ DATA(insert OID = 3353 (  pg_ls_logdir				 PGNSP PGUID 12 10 20 0 0 f f f f t t 
 DESCR("list files in the log directory");
 DATA(insert OID = 3354 (  pg_ls_waldir				 PGNSP PGUID 12 10 20 0 0 f f f f t t v s 0 0 2249 "" "{25,20,1184}" "{o,o,o}" "{name,size,modification}" _null_ _null_ pg_ls_waldir _null_ _null_ _null_ ));
 DESCR("list of files in the WAL directory");
-DATA(insert OID = 4001 (  list_shared_libraries 	 PGNSP PGUID 12 10 20 0 0 f f f f t t v s 0 0 2249 "" "{25,20,1184}" "{o,o,o}" "{name,size,modification}" _null_ _null_ list_shared_libraries _null_ _null_ _null_ ));
+DATA(insert OID = 4001 (  list_shared_libraries 	 PGNSP PGUID 12 10 20 0 0 f f f f t t v s 0 0 2249 "" "{25}" "{o}" "{name}" _null_ _null_ list_shared_libraries _null_ _null_ _null_ ));
 DESCR("list of loaded shared libraries");
 
 /* hash partitioning constraint function */

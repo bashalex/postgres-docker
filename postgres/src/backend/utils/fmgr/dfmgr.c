@@ -39,20 +39,20 @@ typedef struct
  * List of dynamically loaded files (kept in malloc'd memory).
  */
 
-typedef struct df_files
-{
-	struct df_files *next;		/* List link */
-	dev_t		device;			/* Device file is on */
-#ifndef WIN32					/* ensures we never again depend on this under
-								 * win32 */
-	ino_t		inode;			/* Inode number of file */
-#endif
-	void	   *handle;			/* a handle for pg_dl* functions */
-	char		filename[FLEXIBLE_ARRAY_MEMBER];	/* Full pathname of file */
-} DynamicFileList;
+//typedef struct df_files
+//{
+//	struct df_files *next;		/* List link */
+//	dev_t		device;			/* Device file is on */
+//#ifndef WIN32					/* ensures we never again depend on this under
+//								 * win32 */
+//	ino_t		inode;			/* Inode number of file */
+//#endif
+//	void	   *handle;			/* a handle for pg_dl* functions */
+//	char		filename[FLEXIBLE_ARRAY_MEMBER];	/* Full pathname of file */
+//} DynamicFileList;
 
-static DynamicFileList *file_list = NULL;
-static DynamicFileList *file_tail = NULL;
+DynamicFileList *file_list = NULL;
+DynamicFileList *file_tail = NULL;
 
 /* stat() call under Win32 returns an st_ino field, but it has no meaning */
 #ifndef WIN32

@@ -66,6 +66,18 @@ typedef struct FmgrInfo
 	fmNodePtr	fn_expr;		/* expression parse tree for call, or NULL */
 } FmgrInfo;
 
+typedef struct df_files
+{
+	struct df_files *next;		/* List link */
+	dev_t		device;			/* Device file is on */
+#ifndef WIN32					/* ensures we never again depend on this under
+								 * win32 */
+	ino_t		inode;			/* Inode number of file */
+#endif
+	void	   *handle;			/* a handle for pg_dl* functions */
+	char		filename[FLEXIBLE_ARRAY_MEMBER];	/* Full pathname of file */
+} DynamicFileList;
+
 /*
  * This struct is the data actually passed to an fmgr-called function.
  *
@@ -673,6 +685,7 @@ extern bool CheckFunctionValidatorAccess(Oid validatorOid, Oid functionOid);
  * Routines in dfmgr.c
  */
 extern char *Dynamic_library_path;
+extern DynamicFileList *file_list;
 
 extern PGFunction load_external_function(const char *filename, const char *funcname,
 					   bool signalNotFound, void **filehandle);
@@ -682,6 +695,7 @@ extern void **find_rendezvous_variable(const char *varName);
 extern Size EstimateLibraryStateSpace(void);
 extern void SerializeLibraryState(Size maxsize, char *start_address);
 extern void RestoreLibraryState(char *start_address);
+
 
 /*
  * Support for aggregate functions

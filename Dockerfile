@@ -11,7 +11,8 @@ WORKDIR /code
 ADD postgres /code/
 
 # Build postgres
-RUN ./configure && make && make install
+RUN ./configure
+RUN make -j4 && make install
 RUN adduser postgres
 RUN mkdir /usr/local/pgsql/data
 RUN chown postgres /usr/local/pgsql/data
